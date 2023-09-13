@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 7de442f22886b6e408690d912a2acb2d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - cursor: {instanceID: 0}
+  - linePrefab: {instanceID: 0}
+  - stampPrefab: {instanceID: 0}
+  - drawingArea: {instanceID: 0}
+  - toolContentsParent: {instanceID: 0}
+  - arrowSprite: {instanceID: 0}
+  - currentCursorSprite: {instanceID: 0}
+  - currentTool: {instanceID: 0}
+  - currentToolContent: {instanceID: 0}
+  - currentThickness: {instanceID: 0}
+  - drawCamera: {instanceID: 0}
+  - CursorZoomOutput: {instanceID: 0}
+  - ClickSFX: {fileID: 8300000, guid: c58cd9be91a64d943af9251f7af8dc16, type: 3}
+  executionOrder: 200
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

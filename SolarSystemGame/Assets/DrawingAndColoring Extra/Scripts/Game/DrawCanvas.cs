@@ -1,0 +1,41 @@
+﻿using UnityEngine;
+using System.Collections;
+
+///Developed by Indie Studio
+///https://assetstore.unity.com/publishers/9268
+///www.indiestd.com
+///info@indiestd.com
+
+namespace IndieStudio.DrawingAndColoring.Logic
+{
+	[DisallowMultipleComponent]
+	public class DrawCanvas : MonoBehaviour {
+
+		public static DrawCanvas instance;
+		public bool resetSortingLayer = false;
+		// Use this for initialization
+		void Awake () {
+			if (instance == null) {
+				instance = this;
+                DontDestroyOnLoad(gameObject);
+            } else {
+				//Set up the render camera of the Canvas
+				Canvas canvas = instance.GetComponent<Canvas> ();
+				if (canvas.worldCamera == null) {
+					canvas.worldCamera = Camera.main;
+				}
+				Destroy (gameObject);
+			}
+		}
+
+        private void Update()
+        {
+			if (resetSortingLayer)
+            {
+				this.gameObject.GetComponent<Canvas>().sortingLayerName = "Default";
+				resetSortingLayer = false;
+			}
+				
+        }
+    }
+}
