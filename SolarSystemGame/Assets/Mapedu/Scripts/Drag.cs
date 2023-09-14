@@ -153,6 +153,7 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
                 }
                 else
                 {
+                    Debug.Log(name+ "dffff"+ hitInfo.collider.name);
                     Debug.Log("play SFX");
                     SoundEffects.Instance.IncorrectSelectionSound();
                     this.transform.SetParent(content.transform);
