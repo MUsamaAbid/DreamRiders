@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class PinchScrollDetection : MonoBehaviour 
 {
+	[SerializeField] bool ifSize = false;
 	public float speed = 0.01f;
 	private float prevMagnitude = 0;
 	private int touchCount = 0;
@@ -62,12 +63,20 @@ public class PinchScrollDetection : MonoBehaviour
 				prevMagnitude = magnitude;
 			var difference = magnitude - prevMagnitude;
 			prevMagnitude = magnitude;
-			CameraZoom(-difference * speed);
-			GetComponent<Camerascript>().Zoom(difference / 10f);
+			if (ifSize)
+			{
+                CameraZoomSize(-difference * speed);
+            }
+            else
+			{
+                CameraZoom(-difference * speed);
+            }
+            GetComponent<Camerascript>().Zoom(difference / 10f);
 		};
 	}
 
-
+	
 	private void CameraZoom(float increment) => Camera.main.fieldOfView = Mathf.Clamp(Camera.main.fieldOfView + increment, 20, 60);
+	private void CameraZoomSize(float increment) => Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize + increment, 150, 450);
 
 }
