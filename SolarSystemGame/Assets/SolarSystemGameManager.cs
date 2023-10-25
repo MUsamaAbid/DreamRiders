@@ -75,6 +75,7 @@ public class SolarSystemGameManager : MonoBehaviour
 
     public void StartGame()
     {
+        TakEMouseInput();
         currentTime = maxTime;
         SummerPanel.SetActive(false);
         starTime = 15;
@@ -212,7 +213,7 @@ public class SolarSystemGameManager : MonoBehaviour
                 Debug.Log("Displayed from here");
 
                 DisplayNextQuestion();//agla question dikhao
-                Debug.Log("Inside this");
+                Debug.Log("Inside this haseeb");
                 WinSequence();
             }
             else
@@ -229,7 +230,8 @@ public class SolarSystemGameManager : MonoBehaviour
             {
                 Score = Score - 2;
             }
-
+            if (Score < 0)
+                Score = 0;
             StartCoroutine(DisplayThenStopAlert("WRONG ANSWER !", (float)1, 2));
             Debug.Log("Wrong Answer");
         }
@@ -285,41 +287,41 @@ public class SolarSystemGameManager : MonoBehaviour
 
         #region Assinging level question limitations
         int minusLength = 0;
-        if (currentLevel == 1 || currentLevel == 0)
+        if (currentLevel == 1 )
         {
-            minusLength = 26;
+            minusLength = 51;
         }
         else if (currentLevel == 2)
         {
-            minusLength = 22;
+            minusLength = 47;
         }
         else if (currentLevel == 3)
         {
-            minusLength = 17;
+            minusLength = 42;
         }
         else if (currentLevel == 4)
         {
-            minusLength = 11;
+            minusLength = 36;
         }
         else if (currentLevel == 5)
         {
-            minusLength = 5;
+            minusLength = 30;
         }
         else if (currentLevel == 6)
         {
-            minusLength = 4;
+            minusLength = 24;
         }
         else if (currentLevel == 7)
         {
-            minusLength = 3;
+            minusLength = 18;
         }
         else if (currentLevel == 8)
         {
-            minusLength = 2;
+            minusLength = 12;
         }
         else if (currentLevel == 9)
         {
-            minusLength = 1;
+            minusLength = 6;
         }
         else if (currentLevel == 10)
         {
@@ -337,6 +339,7 @@ public class SolarSystemGameManager : MonoBehaviour
         else
         {
             Debug.Log("Displayed from here");
+            
             DisplayNextQuestion();//agla question dikhao
         }
     }
@@ -449,6 +452,6 @@ public class SolarSystemGameManager : MonoBehaviour
     public void TakEMouseInput()
     {
         takeMouseInput = true;
-        AudioSourceManager.Instance.PlayClickSFX("SolorSystem");
+     //   AudioSourceManager.Instance.PlayClickSFX("SolorSystem");
     }
 }
